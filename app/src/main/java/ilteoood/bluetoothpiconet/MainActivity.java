@@ -53,8 +53,7 @@ public class MainActivity extends AppCompatActivity {
                     devices.clear();
                     adapter.startDiscovery();
                     toast("Starting device discovery...");
-                }
-                else
+                } else
                     toast("Discovering already started!");
             }
         });
@@ -64,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (intent.getAction().toString()) {
                     case BluetoothDevice.ACTION_FOUND:
                         BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
-                        devices.add(adapter.getRemoteDevice(device.getAddress()));
+                        devices.add(device);
                         break;
                     case BluetoothAdapter.ACTION_DISCOVERY_FINISHED:
                         toast("Discovery finished!");
